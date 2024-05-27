@@ -40,11 +40,7 @@ namespace BikeManagementSystem.Controllers
                 db.Invoices.Add(invoice);
                 db.SaveChanges();
 
-                Task.Delay(TimeSpan.FromHours(totalHours)).ContinueWith(t =>
-                {
-                    bike.isActive = true;
-                    db.SaveChanges();
-                });
+                
                 return Json(new { success = true });
             }
             else
