@@ -1,0 +1,63 @@
+﻿@model BikeManagementSystem.Controllers.InvoiceModel
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h3 class="text-center mb-4">Invoice Details</h3>
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Invoice ID:</strong></div>
+        <div class="col-sm-8">@Model.InvoiceId</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Total Hours:</strong></div>
+        <div class="col-sm-8">@Model.TotalHours</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Total Amount:</strong></div>
+        <div class="col-sm-8">@Model.TotalAmount</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Payment Method:</strong></div>
+        <div class="col-sm-8">@Model.PaymentMethodName</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Customer Name:</strong></div>
+        <div class="col-sm-8">@Model.CustomerName</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Customer Email:</strong></div>
+        <div class="col-sm-8">@Model.CustomerEmail</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Customer Phone:</strong></div>
+        <div class="col-sm-8">@Model.CustomerPhone</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Bike Name:</strong></div>
+        <div class="col-sm-8">@Model.BikeName</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Bike Brand:</strong></div>
+        <div class="col-sm-8">@Model.BikeBrand</div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-sm-4"><strong>Bike Price Per Hour:</strong></div>
+        <div class="col-sm-8">@Model.BikePricePerHour</div>
+    </div>
+</div>
+
+<style>
+    .container {
+        padding: 20px;
+    }
+
+    .row {
+        margin-bottom: 15px;
+    }
+
+    .col-sm-4 {
+        font-weight: bold;
+    }
+</style>

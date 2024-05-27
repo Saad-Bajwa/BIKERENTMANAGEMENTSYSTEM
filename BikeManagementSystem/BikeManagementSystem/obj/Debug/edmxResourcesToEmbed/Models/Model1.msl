@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BIKEMGMTSYSTEMModelStoreContainer" CdmEntityContainer="BIKEMGMTSYSTEMEntities2">
+    <EntitySetMapping Name="Bikes">
+      <EntityTypeMapping TypeName="BIKEMGMTSYSTEMModel.Bike">
+        <MappingFragment StoreEntitySet="Bike">
+          <ScalarProperty Name="idBike" ColumnName="idBike" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="price_hour" ColumnName="price/hour" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Invoices">
+      <EntityTypeMapping TypeName="BIKEMGMTSYSTEMModel.Invoice">
+        <MappingFragment StoreEntitySet="Invoice">
+          <ScalarProperty Name="invoiceTime" ColumnName="invoiceTime" />
+          <ScalarProperty Name="idInvoice" ColumnName="idInvoice" />
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="idBike" ColumnName="idBike" />
+          <ScalarProperty Name="idPayment" ColumnName="idPayment" />
+          <ScalarProperty Name="totalHours" ColumnName="totalHours" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menus">
+      <EntityTypeMapping TypeName="BIKEMGMTSYSTEMModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="idMenuParent" ColumnName="idMenuParent" />
+          <ScalarProperty Name="icon" ColumnName="icon" />
+          <ScalarProperty Name="controller" ColumnName="controller" />
+          <ScalarProperty Name="pageAction" ColumnName="pageAction" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="BIKEMGMTSYSTEMModel.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="idPayment" ColumnName="idPayment" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rols">
+      <EntityTypeMapping TypeName="BIKEMGMTSYSTEMModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RolMenus">
+      <EntityTypeMapping TypeName="BIKEMGMTSYSTEMModel.RolMenu">
+        <MappingFragment StoreEntitySet="RolMenu">
+          <ScalarProperty Name="idRolMenu" ColumnName="idRolMenu" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="idMenu" ColumnName="idMenu" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="BIKEMGMTSYSTEMModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="idUsers" ColumnName="idUsers" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="photo" ColumnName="photo" />
+          <ScalarProperty Name="cnicFront" ColumnName="cnicFront" />
+          <ScalarProperty Name="cnicBack" ColumnName="cnicBack" />
+          <ScalarProperty Name="isActive" ColumnName="isActive" />
+          <ScalarProperty Name="registrationDate" ColumnName="registrationDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

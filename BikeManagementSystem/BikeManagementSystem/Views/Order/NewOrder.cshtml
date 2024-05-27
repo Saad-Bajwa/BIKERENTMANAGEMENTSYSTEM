@@ -1,0 +1,186 @@
+﻿@model BikeManagementSystem.Models.Invoice
+@{
+    ViewBag.Title = "NewOrder";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+
+<!-- Ordar Modal -->
+<div class="modal fade" id="orderModal" tabindex="-1" aria-labelledby="orderModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="orderModalLabel">Place Order</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="ClearFields()" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="save" class="card" style="width: 80% !important;margin-left: 10% ! IMPORTANT;">
+                    <div class="card-header">
+                        <h4 class="card-title">Place Order</h4>
+                    </div>
+                    <div class="card-body">
+                        <form id="orderForm">
+                            <div class="mb-3">
+                                <label for="totalHours" class="form-label">Total Hours</label>
+                                <input type="number" class="form-control" id="totalHours" name="totalHours" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="totalAmount" class="form-label">Total Amount</label>
+                                <input type="text" class="form-control" id="totalAmount" name="totalAmount" readonly>
+                            </div>
+                            <input type="hidden" id="bikeId" name="bikeId">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="proceedToPayment">Proceed to Payment</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Payment Modal -->
+<div class="modal fade" id="paymentModal" tabindex="-1" aria-labelledby="paymentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="paymentModalLabel">Select Payment Method</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="paymentForm">
+                    <div class="mb-3">
+                        <label for="paymentMethod" class="form-label">Payment Method</label>
+                        <select class="form-control" id="paymentMethod" name="paymentMethod">
+                            <option value="1">Cash</option>
+                            <option value="2">Credit Card</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="placeOrder">Place Order</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="card" id="add" style=" width: 91% !important; margin-left: 4% !important;">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table id="example3" class="display dataTable no-footer" style="min-width: 845px" role="grid" aria-describedby="example3_info">
+                <thead>
+                    <tr role="row">
+                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 67.7667px;"></th>
+                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 95.7167px;">Name</th>
+                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 117.467px;">Brand</th>
+                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 58.5333px;">Price/Hour</th>
+                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 92.5333px;">Availibility</th>
+                        <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 56px;">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (ViewBag.GetBikes != null)
+                    {
+                        foreach (var bike in ViewBag.GetBikes)
+                        {
+                            <tr role="row" class="odd">
+                                <td>
+                                    @if (bike.photo != null && bike.photo.Length > 0)
+                                    {
+                                        string base64String = "data:image/png;base64," + Convert.ToBase64String(bike.photo);
+                                        <img style="height:60px" src="@base64String" class="rounded mx-auto d-block" />
+                                    }
+                                </td>
+                                <td>@bike.name</td>
+                                <td>@bike.brand</td>
+                                <td>@bike.price_hour</td>
+                                @if (bike.isActive)
+                                {
+                                    <td>
+                                        <span class="text-info fw-bold">Available</span>
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary placeOrderButton" style="width: 126px" data-bs-toggle="modal" data-bs-target="#orderModal" data-bike-id="@bike.idBike" , data-bike-price="@bike.price_hour">
+                                            Rent Bike
+                                        </button>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td>
+                                        <span class="text-danger fw-bold">Not Available</span>
+                                    </td>
+
+                                }
+
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr class="text-danger">
+                            <td>
+                                Error! in loading grid
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/Scripts/jquery-3.7.0.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.placeOrderButton').on("click", function () {
+            var bikeId = $(this).data('bike-id');
+            var bikePrice = $(this).data('bike-price');
+            $('#bikeId').val(bikeId);
+
+            $('#totalHours').on("input", function () {
+                var totalHours = $(this).val();
+                var totalAmount = totalHours * bikePrice;
+                $('#totalAmount').val(totalAmount.toFixed(2));
+            });
+        });
+
+        $('#proceedToPayment').on("click", function () {
+            $('#orderModal').modal('hide');
+            $('#paymentModal').modal('show');
+        });
+
+        $('#placeOrder').on("click", function () {
+            var orderData = {
+                bikeId: $('#bikeId').val(),
+                totalHours: $('#totalHours').val(),
+                totalAmount: $('#totalAmount').val(),
+                paymentMethod: $('#paymentMethod').val()
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/Order/PlaceOrder",
+                data: orderData,
+                success: function (response) {
+                    alert('Order placed successfully!');
+                    window.location.reload();
+                },
+                error: function () {
+                    alert('Error placing order!');
+                }
+            });
+        });
+    });
+</script>
+

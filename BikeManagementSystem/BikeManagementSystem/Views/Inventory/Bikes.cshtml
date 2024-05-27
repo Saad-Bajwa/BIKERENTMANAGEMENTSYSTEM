@@ -1,0 +1,173 @@
+﻿@model BikeManagementSystem.Models.Bike
+@{
+    ViewBag.Title = "Bikes";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+@using (Html.BeginForm("Bikes", "Inventory", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Bikes Management</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="ClearFields()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="save" class="card" style="width: 80% !important;margin-left: 10% ! IMPORTANT;">
+                        <div class="card-header">
+                            <h4 class="card-title">Bike Form</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="basic-form">
+                                <form>
+                                    <div class="row">
+                                        @Html.HiddenFor(model => model.idBike)
+                                        @Html.HiddenFor(model => model.photo)
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Name</label>
+                                            @Html.TextBoxFor(model => model.name, htmlAttributes: new { @class = "form-control", type = "text", placeholder = "Honda", id = "name" })
+                                            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Brand</label>
+                                            @Html.TextBoxFor(model => model.brand, htmlAttributes: new { @class = "form-control", type = "text", placeholder = "", id = "brand" })
+                                            @Html.ValidationMessageFor(model => model.brand, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Price/Hour</label>
+                                            @Html.TextBoxFor(model => model.price_hour, htmlAttributes: new { @class = "form-control", type = "number", placeholder = "", id = "phour" })
+                                            @Html.ValidationMessageFor(model => model.price_hour, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Upload Image</label>
+                                            <input type="file" class="form-control" name="imgFile" />
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Availibility</label>
+                                            <br />
+                                            @Html.CheckBoxFor(model => model.isActive, htmlAttributes: new { @class = "form-check-input" })
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" id="save" class="btn btn-primary" value="@ViewBag.Btn" />
+                    <button type="button" class="btn btn-secondary" onclick="ClearFields()" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="card" id="add" style=" width: 91% !important; margin-left: 4% !important;">
+    <div class="card-header">
+        <h4 class="card-title">Bike DataTable</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <div id="example3_wrapper" class="dataTables_wrapper no-footer">
+                <div class="row">
+                    <button type="button" class="col-2 btn btn-primary" style="margin-left:24px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add
+                    </button>
+                </div>
+                <br />
+
+                <table id="example3" class="display dataTable no-footer" style="min-width: 845px" role="grid" aria-describedby="example3_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 67.7667px;"></th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 95.7167px;">Name</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 117.467px;">Brand</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 58.5333px;">Price/Hour</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 92.5333px;">Availibility</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 56px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.BikeGrid != null)
+                        {
+                            foreach (var bike in ViewBag.BikeGrid)
+                            {
+                                <tr role="row" class="odd">
+                                    <td>
+                                        @if (bike.photo != null && bike.photo.Length > 0)
+                                        {
+                                            string base64String = "data:image/png;base64," + Convert.ToBase64String(bike.photo);
+                                            <img style="height:60px" src="@base64String" class="rounded mx-auto d-block" />
+                                        }
+                                    </td>
+                                    <td>@bike.name</td>
+                                    <td>@bike.brand</td>
+                                    <td>@bike.price_hour</td>
+                                    <td>
+                                        @if (bike.isActive)
+                                        {
+                                            <span class="text-info">Available</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-danger">Not Available</span>
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @Html.ActionLink(" ", "EditBike", new { id = bike.idBike},
+                                        new { @class = "fa fa-pencil mr-0 badge bg-success mr-2" })
+
+                                        @Html.ActionLink(" ", "DeleteBike", new { id = bike.idBike }, new
+                                        {
+                                            @class = "fa fa-trash mr-0 badge bg-warning mr-2",
+                                        onclick = "return confirm('Are you want to Remove (" + bike.name + ") to list ?');"
+                                        })
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr class="text-danger">
+                                <td>
+                                    Error! in loading grid
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.7.0.js"></script>
+<script>
+
+    $(document).ready(function () {
+        var btnText = "@Convert.ToString(ViewBag.Btn)";
+if (btnText === "Update") {
+    $('#exampleModal').modal('show');
+}
+    });
+
+    function ClearFields() {
+        $('#name').val("");
+        $('#brand').val("");
+        $('#phour').val("");
+        $('#save').val("Save");
+    }
+
+</script>
+
+
+
+

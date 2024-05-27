@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BIKEMGMTSYSTEMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bike">
+    <Key>
+      <PropertyRef Name="idBike" />
+    </Key>
+    <Property Name="idBike" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="brand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="price_hour" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="registrationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoice__idBike__267ABA7A" FromRole="Bike" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Invoice">
+    <Key>
+      <PropertyRef Name="idInvoice" />
+    </Key>
+    <Property Name="idInvoice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUser" Type="Int32" />
+    <Property Name="idBike" Type="Int32" />
+    <Property Name="idPayment" Type="Int32" />
+    <Property Name="totalHours" Type="Double" />
+    <Property Name="totalAmount" Type="Double" />
+    <NavigationProperty Name="Bike" Relationship="Self.FK__Invoice__idBike__267ABA7A" FromRole="Invoice" ToRole="Bike" />
+    <NavigationProperty Name="Payment" Relationship="Self.FK__Invoice__idPayme__276EDEB3" FromRole="Invoice" ToRole="Payment" />
+    <NavigationProperty Name="User" Relationship="Self.FK__Invoice__idUser__25869641" FromRole="Invoice" ToRole="Users" />
+    <Property Name="invoiceTime" Type="Time" Precision="7" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="idMenu" />
+    </Key>
+    <Property Name="idMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="idMenuParent" Type="Int32" />
+    <Property Name="icon" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="controller" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="pageAction" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="registrationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Menu1" Relationship="Self.FK__Menu__idMenuPare__108B795B" FromRole="Menu" ToRole="Menu1" />
+    <NavigationProperty Name="Menu2" Relationship="Self.FK__Menu__idMenuPare__108B795B" FromRole="Menu1" ToRole="Menu" />
+    <NavigationProperty Name="RolMenus" Relationship="Self.FK__RolMenu__idMenu__182C9B23" FromRole="Menu" ToRole="RolMenu" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="idPayment" />
+    </Key>
+    <Property Name="idPayment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="registrationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoice__idPayme__276EDEB3" FromRole="Payment" ToRole="Invoice" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="idRol" />
+    </Key>
+    <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="description" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="registrationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="RolMenus" Relationship="Self.FK__RolMenu__idRol__173876EA" FromRole="Rol" ToRole="RolMenu" />
+    <NavigationProperty Name="Users" Relationship="Self.FK__Users__idRol__1BFD2C07" FromRole="Rol" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="RolMenu">
+    <Key>
+      <PropertyRef Name="idRolMenu" />
+    </Key>
+    <Property Name="idRolMenu" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idRol" Type="Int32" />
+    <Property Name="idMenu" Type="Int32" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="registrationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Menu" Relationship="Self.FK__RolMenu__idMenu__182C9B23" FromRole="RolMenu" ToRole="Menu" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK__RolMenu__idRol__173876EA" FromRole="RolMenu" ToRole="Rol" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="idUsers" />
+    </Key>
+    <Property Name="idUsers" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idRol" Type="Int32" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="cnicFront" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="cnicBack" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="isActive" Type="Boolean" />
+    <Property Name="registrationDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Invoices" Relationship="Self.FK__Invoice__idUser__25869641" FromRole="Users" ToRole="Invoice" />
+    <NavigationProperty Name="Rol" Relationship="Self.FK__Users__idRol__1BFD2C07" FromRole="Users" ToRole="Rol" />
+  </EntityType>
+  <Association Name="FK__Invoice__idBike__267ABA7A">
+    <End Role="Bike" Type="Self.Bike" Multiplicity="0..1" />
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bike">
+        <PropertyRef Name="idBike" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="idBike" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Invoice__idPayme__276EDEB3">
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="idPayment" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="idPayment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Invoice__idUser__25869641">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="idUsers" />
+      </Principal>
+      <Dependent Role="Invoice">
+        <PropertyRef Name="idUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Menu__idMenuPare__108B795B">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+    <End Role="Menu1" Type="Self.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="idMenu" />
+      </Principal>
+      <Dependent Role="Menu1">
+        <PropertyRef Name="idMenuParent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RolMenu__idMenu__182C9B23">
+    <End Role="Menu" Type="Self.Menu" Multiplicity="0..1" />
+    <End Role="RolMenu" Type="Self.RolMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="idMenu" />
+      </Principal>
+      <Dependent Role="RolMenu">
+        <PropertyRef Name="idMenu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RolMenu__idRol__173876EA">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="RolMenu" Type="Self.RolMenu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="RolMenu">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Users__idRol__1BFD2C07">
+    <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+    <End Role="Users" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="idRol" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="idRol" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BIKEMGMTSYSTEMEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bikes" EntityType="Self.Bike" />
+    <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+    <EntitySet Name="Menus" EntityType="Self.Menu" />
+    <EntitySet Name="Payments" EntityType="Self.Payment" />
+    <EntitySet Name="Rols" EntityType="Self.Rol" />
+    <EntitySet Name="RolMenus" EntityType="Self.RolMenu" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK__Invoice__idBike__267ABA7A" Association="Self.FK__Invoice__idBike__267ABA7A">
+      <End Role="Bike" EntitySet="Bikes" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Invoice__idPayme__276EDEB3" Association="Self.FK__Invoice__idPayme__276EDEB3">
+      <End Role="Payment" EntitySet="Payments" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Invoice__idUser__25869641" Association="Self.FK__Invoice__idUser__25869641">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Invoice" EntitySet="Invoices" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Menu__idMenuPare__108B795B" Association="Self.FK__Menu__idMenuPare__108B795B">
+      <End Role="Menu" EntitySet="Menus" />
+      <End Role="Menu1" EntitySet="Menus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RolMenu__idMenu__182C9B23" Association="Self.FK__RolMenu__idMenu__182C9B23">
+      <End Role="Menu" EntitySet="Menus" />
+      <End Role="RolMenu" EntitySet="RolMenus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RolMenu__idRol__173876EA" Association="Self.FK__RolMenu__idRol__173876EA">
+      <End Role="Rol" EntitySet="Rols" />
+      <End Role="RolMenu" EntitySet="RolMenus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Users__idRol__1BFD2C07" Association="Self.FK__Users__idRol__1BFD2C07">
+      <End Role="Rol" EntitySet="Rols" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

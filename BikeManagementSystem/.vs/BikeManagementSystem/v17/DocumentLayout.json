@@ -1,0 +1,217 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|e:\\work\\asp.net mvc\\bikemanagementsystem\\bikemanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\views\\shared\\_masterpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\views\\shared\\_masterpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\views\\admin\\dashboard.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\controllers\\ordercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\views\\shared\\_invoicedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\views\\shared\\_invoicedetails.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\views\\admin\\accounthistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\views\\admin\\accounthistory.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\views\\order\\neworder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\views\\order\\neworder.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\views\\inventory\\bikes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\views\\inventory\\bikes.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\controllers\\accesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\controllers\\accesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\controllers\\inventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\controllers\\inventorycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\models\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\models\\invoice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\bikemanagementsystem\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0EDB9311-D2A4-4760-A758-79EED3020D4C}|BikeManagementSystem\\BikeManagementSystem.csproj|solutionrelative:bikemanagementsystem\\app_start\\routeconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DashBoard.cshtml",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Admin\\DashBoard.cshtml",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Views\\Admin\\DashBoard.cshtml",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Admin\\DashBoard.cshtml",
+              "RelativeToolTip": "BikeManagementSystem\\Views\\Admin\\DashBoard.cshtml",
+              "ViewState": "AQIAADgAAAAAAAAAAAAAwA4AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T09:56:33.405Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RouteConfig.cs",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\App_Start\\RouteConfig.cs",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\App_Start\\RouteConfig.cs",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\App_Start\\RouteConfig.cs",
+              "RelativeToolTip": "BikeManagementSystem\\App_Start\\RouteConfig.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T14:04:44.023Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AccessController.cs",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Controllers\\AccessController.cs",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Controllers\\AccessController.cs",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Controllers\\AccessController.cs",
+              "RelativeToolTip": "BikeManagementSystem\\Controllers\\AccessController.cs",
+              "ViewState": "AQIAABMAAAAAAAAAAAAcwBkAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T13:07:05.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Controllers\\AdminController.cs",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "BikeManagementSystem\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T11:32:42.274Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "_MasterPage.cshtml",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Shared\\_MasterPage.cshtml",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Views\\Shared\\_MasterPage.cshtml",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Shared\\_MasterPage.cshtml",
+              "RelativeToolTip": "BikeManagementSystem\\Views\\Shared\\_MasterPage.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACcAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-25T11:51:33.135Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderController.cs",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Controllers\\OrderController.cs",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Controllers\\OrderController.cs",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Controllers\\OrderController.cs",
+              "RelativeToolTip": "BikeManagementSystem\\Controllers\\OrderController.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABIAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T16:12:47.122Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "InventoryController.cs",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Controllers\\InventoryController.cs",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Controllers\\InventoryController.cs",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Controllers\\InventoryController.cs",
+              "RelativeToolTip": "BikeManagementSystem\\Controllers\\InventoryController.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAQwCIAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T15:15:10.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "_InvoiceDetails.cshtml",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Shared\\_InvoiceDetails.cshtml",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Views\\Shared\\_InvoiceDetails.cshtml",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Shared\\_InvoiceDetails.cshtml",
+              "RelativeToolTip": "BikeManagementSystem\\Views\\Shared\\_InvoiceDetails.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T06:49:31.436Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "NewOrder.cshtml",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Order\\NewOrder.cshtml",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Views\\Order\\NewOrder.cshtml",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Order\\NewOrder.cshtml",
+              "RelativeToolTip": "BikeManagementSystem\\Views\\Order\\NewOrder.cshtml",
+              "ViewState": "AQIAACcAAAAAAAAAAAAUwDYAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-25T16:04:57.179Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountHistory.cshtml",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Admin\\AccountHistory.cshtml",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Views\\Admin\\AccountHistory.cshtml",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Admin\\AccountHistory.cshtml",
+              "RelativeToolTip": "BikeManagementSystem\\Views\\Admin\\AccountHistory.cshtml",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAAEYAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-26T06:33:32.903Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Bikes.cshtml",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Inventory\\Bikes.cshtml",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Views\\Inventory\\Bikes.cshtml",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Views\\Inventory\\Bikes.cshtml",
+              "RelativeToolTip": "BikeManagementSystem\\Views\\Inventory\\Bikes.cshtml",
+              "ViewState": "AQIAAEUAAAAAAAAAAAAAAEYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-05-25T15:11:14.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Invoice.cs",
+              "DocumentMoniker": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Models\\Invoice.cs",
+              "RelativeDocumentMoniker": "BikeManagementSystem\\Models\\Invoice.cs",
+              "ToolTip": "E:\\Work\\ASP.NET MVC\\BikeManagementSystem\\BikeManagementSystem\\Models\\Invoice.cs",
+              "RelativeToolTip": "BikeManagementSystem\\Models\\Invoice.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAYwBEAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-25T18:20:15.127Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

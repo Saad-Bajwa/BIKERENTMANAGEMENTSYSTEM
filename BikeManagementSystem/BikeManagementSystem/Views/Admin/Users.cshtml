@@ -1,0 +1,189 @@
+﻿@model BikeManagementSystem.Models.User
+@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+@using (Html.BeginForm("Users", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" onclick="ClearFields()" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="save" class="card" style="width: 80% !important;margin-left: 10% ! IMPORTANT;">
+                        <div class="card-header">
+                            <h4 class="card-title">Admin Form</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="basic-form">
+                                <form>
+                                    <div class="row">
+                                        @Html.HiddenFor(model => model.idUsers)
+                                        @Html.HiddenFor(model => model.cnicFront)
+                                        @Html.HiddenFor(model => model.cnicBack)
+                                        @Html.HiddenFor(model => model.photo)
+                                        @Html.HiddenFor(model => model.idRol)
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Name</label>
+                                            @Html.TextBoxFor(model => model.name, htmlAttributes: new { @class = "form-control", type = "text", placeholder = "John", id="name" })
+                                            @Html.ValidationMessageFor(model => model.name, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Email</label>
+                                            @Html.TextBoxFor(model => model.email, htmlAttributes: new { @class = "form-control", type = "email", placeholder = "Email", id="email" })
+                                            @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Phone</label>
+                                            @Html.TextBoxFor(model => model.phone, htmlAttributes: new { @class = "form-control", type = "number", placeholder = "", id="phone" })
+                                            @Html.ValidationMessageFor(model => model.phone, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Password</label>
+                                            @Html.TextBoxFor(model => model.password, htmlAttributes: new { @class = "form-control", type = "Password", placeholder = "", id="password" })
+                                            @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Front CNIC</label>
+                                            <input type="file" class="form-control" name="frontCnic" />
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Back CNIC</label>
+                                            <input type="file" class="form-control" name="backCnic" />
+                                        </div>
+                                        <div class="mb-3 col-md-6">
+                                            <label class="form-label">Upload Image</label>
+                                            <input type="file" class="form-control" name="imgFile" />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="submit" id="save" class="btn btn-primary" value="@ViewBag.Btn" />
+                    <button type="button" class="btn btn-secondary" onclick="ClearFields()" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="card" id="add" style=" width: 91% !important; margin-left: 4% !important;">
+    <div class="card-header">
+        <h4 class="card-title">User DataTable</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <div id="example3_wrapper" class="dataTables_wrapper no-footer">
+                <div class="row">
+                    <button type="button" class="col-2 btn btn-primary" style="margin-left:24px" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Add
+                    </button>
+                </div>
+                <br />
+
+                <table id="example3" class="display dataTable no-footer" style="min-width: 845px" role="grid" aria-describedby="example3_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 67.7667px;"></th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 95.7167px;">Name</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 117.467px;">Email</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 58.5333px;">Phone</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 92.5333px;">Password</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 67.7667px;">CNIC Front</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 67.7667px;">CNIC Back</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 56px;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.UserGrid != null)
+                        {
+                            foreach (var user in ViewBag.UserGrid)
+                            {
+                                <tr role="row" class="odd">
+                                    <td>
+                                        @if (user.photo != null && user.photo.Length > 0)
+                                        {
+                                            string base64String = "data:image/png;base64," + Convert.ToBase64String(user.photo);
+                                            <img style="height:60px" src="@base64String" class="rounded mx-auto d-block" />
+                                        }
+                                    </td>
+                                    <td>@user.name</td>
+                                    <td>@user.email</td>
+                                    <td>@user.phone</td>
+                                    <td>@user.password</td>
+                                    <td>
+                                        @if (user.cnicFront != null && user.cnicFront.Length > 0)
+                                        {
+                                            string base64String = "data:image/png;base64," + Convert.ToBase64String(user.cnicFront);
+                                            <img style="height:60px" src="@base64String" class="rounded mx-auto d-block" />
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (user.cnicBack != null && user.cnicBack.Length > 0)
+                                        {
+                                            string base64String = "data:image/png;base64," + Convert.ToBase64String(user.cnicBack);
+                                            <img style="height:60px" src="@base64String" class="rounded mx-auto d-block" />
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink(" ", "EditUser", new { id = user.idUsers },
+                                        new { @class = "fa fa-pencil mr-0 badge bg-success mr-2"})
+
+                                        @Html.ActionLink(" ", "DeleteUser", new { id = user.idUsers }, new
+                                        {
+                                            @class = "fa fa-trash mr-0 badge bg-warning mr-2",
+                                        onclick = "return confirm('Are you want to Remove (" + user.name + ") to list ?');"
+                                        })
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr class="text-danger">
+                                <td>
+                                    Error! in loading grid
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.7.0.js"></script>
+<script>
+
+    $(document).ready(function () {
+        var btnText = "@Convert.ToString(ViewBag.Btn)";
+if (btnText === "Update") {
+    $('#exampleModal').modal('show');
+}
+    });
+
+    function ClearFields() {
+        $('#name').val("");
+        $('#email').val("");
+        $('#phone').val("");
+        $('#password').val("");
+        $('#save').val("Save");
+    }
+
+</script>
+
+

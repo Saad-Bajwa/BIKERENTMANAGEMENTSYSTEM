@@ -1,0 +1,94 @@
+﻿@model BikeManagementSystem.Models.Invoice
+@{
+    ViewBag.Title = "AccountHistory";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+
+<div class="card" id="add" style=" width: 91% !important; margin-left: 4% !important;">
+    <div class="card-header">
+        <h4 class="card-title">Accounts History</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <div id="example3_wrapper" class="dataTables_wrapper no-footer">
+
+                <table id="example3" class="display dataTable no-footer" style="min-width: 845px" role="grid" aria-describedby="example3_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 67.7667px;">Invoice Id</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 95.7167px;">Total Hours</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 117.467px;">Total Amount</th>
+                            <th class="sorting" tabindex="0" aria-controls="example3" rowspan="1" colspan="1" style="width: 58.5333px;">View Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (ViewBag.InvoiceGrid != null)
+                        {
+                            foreach (var inv in ViewBag.InvoiceGrid)
+                            {
+                                <tr role="row" class="odd">
+
+                                    <td>@inv.idInvoice</td>
+                                    <td>@inv.totalHours</td>
+                                    <td>@inv.totalAmount</td>
+                                    <td>
+                                        <button class="btn btn-primary" onclick="showInvoiceDetails(@inv.idInvoice)" style="margin-left: 20px;">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr class="text-danger">
+                                <td>
+                                    Error! in loading grid
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="invoiceDetailsModal" tabindex="-1" role="dialog" aria-labelledby="invoiceDetailsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="invoiceDetailsLabel">Invoice Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="invoiceDetailsContent">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.7.0.js"></script>
+
+<script>
+    function showInvoiceDetails(invoiceId) {
+            $.ajax({
+                url: '@Url.Action("GetInvoiceDetails", "Admin")',
+                type: 'GET',
+                data: { id: invoiceId },
+                success: function (data) {
+                    $('#invoiceDetailsContent').html(data);
+                    $('#invoiceDetailsModal').modal('show');
+                },
+                error: function () {
+                    alert('An error occurred while retrieving invoice details.');
+                }
+            });
+        }
+</script>

@@ -1,0 +1,94 @@
+﻿@model BikeManagementSystem.Models.User
+
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+
+
+
+<!-- Mirrored from dompet.dexignlab.com/xhtml/page-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 13 Jun 2021 12:07:22 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="" />
+    <meta name="author" content="" />
+    <meta name="robots" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Dompet : Payment Admin Template" />
+    <meta property="og:title" content="Dompet : Payment Admin Template" />
+    <meta property="og:description" content="Dompet : Payment Admin Template" />
+    <meta property="og:image" content="social-image.png" />
+    <meta name="format-detection" content="telephone=no">
+
+    <!-- PAGE TITLE HERE -->
+    <title>Dompet : Payment Admin Template</title>
+
+    <!-- FAVICONS ICON -->
+    <link rel="shortcut icon" type="image/png" href="~/Assets/images/favicon.png" />
+    <link href="~/Assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body class="vh-100">
+
+    @using (Html.BeginForm("Login", "Access", FormMethod.Post))
+    {
+        <div class="authincation h-100">
+            <div class="container h-100">
+                <div class="row justify-content-center h-100 align-items-center">
+                    <div class="col-md-6">
+                        @if (ViewBag.InvalidCredential != null)
+                        {
+                            <div class="alert alert-danger" role="alert">
+                                @ViewBag.InvalidCredential
+                            </div>
+                        }
+                        <div class="authincation-content">
+                            <div class="row no-gutters">
+                                <div class="col-xl-12">
+                                    <div class="auth-form">
+                                        <div class="text-center mb-3">
+                                            @*<a href="~/Assets/index.html"><img src="~/Assets/images/logo-full.png" alt=""></a>*@
+                                            <h1>BRMS</h1>
+                                        </div>
+                                        <h4 class="text-center mb-4">Sign in your account</h4>
+                                        <form action="">
+                                            <div class="mb-3">
+                                                <label class="mb-1"><strong>Email</strong></label>
+                                                @Html.TextBoxFor(model => model.email, htmlAttributes: new { @class = "form-control", type = "email", placeholder = "Email" })
+                                                @Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="mb-3">
+                                                <label class="mb-1"><strong>Password</strong></label>
+                                                @Html.TextBoxFor(model => model.password, htmlAttributes: new { @class = "form-control", type = "password", placeholder = "Password" })
+                                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                            </div>
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary btn-block">Sign Me In</button>
+                                            </div>
+                                            <div class="text-center mt-3">
+                                                <a href="@Url.Action("NewRegistration","Access")" class="btn btn-link">New Registration</a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="~/Assets/vendor/global/global.min.js"></script>
+    <script src="~/Assets/js/custom.min.js"></script>
+    @*<script src="~/Assets/js/dlabnav-init.js"></script>
+        <script src="~/Assets/js/styleSwitcher.js"></script>*@
+</body>
+

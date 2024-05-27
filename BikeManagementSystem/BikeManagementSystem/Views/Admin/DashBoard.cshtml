@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "DashBoard";
+    Layout = "~/Views/Shared/_MasterPage.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Customer Data Analysis</h4>
+                </div>
+                <div class="card-body">
+                    <canvas id="areaChart"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- Pie Chart -->
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Customer Data Analysis</h4>
+                </div>
+                <div class="card-body">
+                    <canvas id="pieChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery-3.7.0.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: '@Url.Action("GetChartData", "Admin")',
+            type: 'GET',
+            success: function (data) {
+                var personNames = data.map(d => d.PersonName);
+                var totalAmounts = data.map(d => d.TotalAmount);
+
+                var ctxArea = document.getElementById("areaChart").getContext('2d');
+                new Chart(ctxArea, {
+                    type: 'line',
+                    data: {
+                        labels: personNames,
+                        datasets: [{
+                            label: 'Total Amount',
+                            data: totalAmounts,
+                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
+                        }
+                    }
+                });
+
+                var ctxPie = document.getElementById("pieChart").getContext('2d');
+                new Chart(ctxPie, {
+                    type: 'pie',
+                    data: {
+                        labels: personNames,
+                        datasets: [{
+                            label: 'Total Amount',
+                            data: totalAmounts,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(75, 192, 192, 0.2)',
+                                'rgba(153, 102, 255, 0.2)',
+                                'rgba(255, 159, 64, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 99, 132, 1)',
+                                'rgba(54, 162, 235, 1)',
+                                'rgba(255, 206, 86, 1)',
+                                'rgba(75, 192, 192, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(255, 159, 64, 1)'
+                            ],
+                            borderWidth: 1
+                        }]
+                    }
+                });
+            },
+            error: function () {
+                alert('Failed to retrieve chart data.');
+            }
+        });
+    });
+
+</script>
+
